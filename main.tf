@@ -12,6 +12,19 @@ variable "bucket_name" {
   default     = "my-unique-hcp-terraform-s3-bucket-example" # Ensure this name is globally unique
 }
 
+variable "aws_access_key_id" {
+  description = "The AWS access key ID."
+  type        = string
+  sensitive   = true # Mark as sensitive to prevent exposing the value in logs
+}
+
+variable "aws_secret_access_key" {
+  description = "The AWS secret access key."
+  type        = string
+  sensitive   = true
+}
+
+
 # Create the S3 bucket resource
 resource "aws_s3_bucket" "example_bucket_ankita" {
   bucket = var.bucket_name
