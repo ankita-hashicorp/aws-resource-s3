@@ -24,7 +24,7 @@ resource "aws_s3_bucket" "example_bucket_ankita" {
 
 # Enable versioning for the S3 bucket
 resource "aws_s3_bucket_versioning" "example_bucket_versioning" {
-  bucket = aws_s3_bucket.example_bucket.id
+  bucket = "example_bucket_ankita"
   versioning_configuration {
     status = "Enabled"
   }
@@ -32,17 +32,17 @@ resource "aws_s3_bucket_versioning" "example_bucket_versioning" {
 
 # Set the access control list (ACL) for the S3 bucket to private
 resource "aws_s3_bucket_acl" "example_bucket_acl" {
-  bucket = aws_s3_bucket.example_bucket.id
+  bucket = "example_bucket_ankita"
   acl    = "private"
 }
 
 # Output the S3 bucket name and ARN
 output "s3_bucket_name" {
   description = "The name of the created S3 bucket."
-  value       = aws_s3_bucket.example_bucket.bucket
+  value       = aws_s3_bucket.example_bucket_ankita.bucket
 }
 
 output "s3_bucket_arn" {
   description = "The ARN of the created S3 bucket."
-  value       = aws_s3_bucket.example_bucket.arn
+  value       = aws_s3_bucket.example_bucket_ankita.arn
 }
